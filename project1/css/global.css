@@ -22,7 +22,7 @@ body {
 
 /* Navigation Styles - Flexbox implementation */
 nav {
-    background-image: url(/images/rainbow-vortex.png);
+    background-image: url(../images/rainbow-vortex.png);
     padding: 1rem 0;
     position: fixed;
     top: 0;
@@ -71,7 +71,7 @@ nav ul li a[aria-current="page"] {
 
 /* Header Styles - Hero section */
 header {
-    background-image: url(/images/rainbow-vortex.png);
+    background-image: url(../images/rainbow-vortex.png);
     color: #fff;
     text-align: left;
     padding: 8rem 2rem 6rem;
