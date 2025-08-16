@@ -1,0 +1,403 @@
+/* Contact Page CSS - Kochi Solutions
+   Styles specific to the contact page
+   Features: Forms, Flexbox, Grid, Form Validation Styling
+   Author: Eric Kovalevskyy
+   Date: 2024
+*/
+
+/* Contact Details Section - Flexbox Layout */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Contact Item Components */
+.contact-item {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(145deg, #f8f9fa, #ffffff);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 400px;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+.contact-item h3 {
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Email Link Styling */
+.email {
+    font-size: 1.4rem;
+    color: #ff6b9d;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(255, 154, 86, 0.1));
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.email::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s;
+}
+
+.email:hover::before {
+    left: 100%;
+}
+
+.email:hover,
+.email:focus {
+    background: linear-gradient(135deg, #ff6b9d, #ff9a56);
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 107, 157, 0.4);
+    border-color: rgba(255, 107, 157, 0.3);
+}
+
+/* Phone Link Styling */
+.phone {
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 5px solid #a855f7;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.phone:hover,
+.phone:focus {
+    background: #e9ecef;
+    color: #333;
+    transform: translateX(5px);
+    border-left-color: #ff6b9d;
+}
+
+/* Address Section - Semantic Address Element */
+.address {
+    font-style: normal;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #fff;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.address::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(255, 255, 255, 0.05) 10px,
+        rgba(255, 255, 255, 0.05) 20px
+    );
+    animation: float 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes float {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Override contact-item styles for address container - Using attribute selector for better compatibility */
+.contact-item:nth-child(3) {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+}
+
+.contact-item:nth-child(3):hover {
+    transform: none;
+}
+
+.contact-item:nth-child(3) .address:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+}
+
+/* Contact Form Section */
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 3.5rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(135deg, #ff9a56, #ff6b9d, #a855f7, #3b82f6);
+}
+
+/* Form Group Layout */
+.form-group {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+/* Form Labels */
+.form-group label {
+    display: block;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Form Inputs - Enhanced Styling */
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 1.2rem 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    background: #fafafa;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #ff6b9d;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(255, 107, 157, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Textarea Specific Styling */
+textarea {
+    resize: vertical;
+    min-height: 140px;
+    line-height: 1.6;
+    font-family: inherit;
+}
+
+/* Placeholder Styling */
+input::placeholder,
+textarea::placeholder {
+    color: #999;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* Form Validation States */
+input:valid {
+    border-color: #28a745;
+    background-image: linear-gradient(45deg, transparent 40%, rgba(40, 167, 69, 0.1) 40%, rgba(40, 167, 69, 0.1) 60%, transparent 60%);
+}
+
+input:invalid:not(:placeholder-shown) {
+    border-color: #dc3545;
+    background-image: linear-gradient(45deg, transparent 40%, rgba(220, 53, 69, 0.1) 40%, rgba(220, 53, 69, 0.1) 60%, transparent 60%);
+}
+
+textarea:valid {
+    border-color: #28a745;
+}
+
+textarea:invalid:not(:placeholder-shown) {
+    border-color: #dc3545;
+}
+
+/* Form Actions - Button Container with Flexbox */
+.form-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+/* Submit Button */
+input[type="submit"] {
+    background: linear-gradient(135deg, #ff6b9d, #ff9a56);
+    color: #fff;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    box-shadow: 0 6px 20px rgba(255, 107, 157, 0.3);
+    min-width: 160px;
+    position: relative;
+    overflow: hidden;
+}
+
+input[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s;
+}
+
+input[type="submit"]:hover::before {
+    left: 100%;
+}
+
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 30px rgba(255, 107, 157, 0.4);
+    background: linear-gradient(135deg, #ff9a56, #ff6b9d);
+}
+
+input[type="submit"]:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* Reset Button */
+input[type="reset"] {
+    background: linear-gradient(135deg, #6c757d, #5a6268);
+    color: #fff;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    box-shadow: 0 6px 20px rgba(108, 117, 125, 0.3);
+    min-width: 160px;
+}
+
+input[type="reset"]:hover,
+input[type="reset"]:focus {
+    background: linear-gradient(135deg, #5a6268, #495057);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 30px rgba(108, 117, 125, 0.4);
+}
+
+input[type="reset"]:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+/* Responsive Design for Contact Page */
+@media (max-width: 768px) {
+    .contact-info {
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+    
+    .contact-item {
+        padding: 1.5rem;
+        max-width: none;
+    }
+    
+    .email {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.5rem;
+    }
+    
+    .phone {
+        font-size: 1.1rem;
+    }
+    
+    .contact-form {
+        margin: 0 1rem;
+        padding: 2.5rem 2rem;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    input[type="submit"],
+    input[type="reset"] {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-item {
+        padding: 1.2rem;
+    }
+    
+    .email {
+        font-size: 1.1rem;
+        padding: 0.7rem 1.2rem;
+    }
+    
+    .phone {
+        font-size: 1rem;
+        padding: 0.8rem 1.2rem;
+    }
+    
+    .contact-form {
+        padding: 2rem 1.5rem;
+    }
+    
+    .form-group label {
+        font-size: 1rem;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        padding: 1rem 0.8rem;
+        font-size: 0.95rem;
+    }
+    
+    input[type="submit"],
+    input[type="reset"] {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+}
