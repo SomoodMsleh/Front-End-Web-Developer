@@ -270,7 +270,7 @@ footer {
 }
 
 /* Responsive Typography and Spacing */
-@media (max-width: 768px) {
+@media screen (max-width: 768px) {
     body {
         padding-top: 120px;
     }
@@ -321,7 +321,7 @@ footer {
     }
 }
 
-@media (max-width: 480px) {
+@media screen (max-width: 480px) {
     body {
         padding-top: 140px;
     }

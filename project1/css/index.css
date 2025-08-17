@@ -209,14 +209,14 @@
 }
 
 /* Responsive Design for Index Page */
-@media (max-width: 992px) {
+@media screen (max-width: 992px) {
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 2rem;
     }
 }
 
-@media (max-width: 768px) {
+@media screen (max-width: 768px) {
     /* History section - single column */
     .history-content {
         grid-template-columns: 1fr;
@@ -251,7 +251,7 @@
     }
 }
 
-@media (max-width: 480px) {
+@media screen (max-width: 480px) {
     .history-image img {
         height: 220px;
     }

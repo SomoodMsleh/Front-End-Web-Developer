@@ -328,7 +328,7 @@ input[type="reset"]:active {
 }
 
 /* Responsive Design for Contact Page */
-@media (max-width: 768px) {
+@media screen (max-width: 768px) {
     .contact-info {
         gap: 2rem;
         padding: 0 1rem;
@@ -365,7 +365,7 @@ input[type="reset"]:active {
     }
 }
 
-@media (max-width: 480px) {
+@media screen (max-width: 480px) {
     .contact-item {
         padding: 1.2rem;
     }
