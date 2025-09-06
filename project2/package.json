@@ -1,0 +1,35 @@
+{
+    "name": "somood-musleh-portfolio",
+    "version": "1.0.0",
+    "description": "Modern responsive portfolio website for Somood Musleh",
+    "main": "project2/src/index.html",
+    "scripts": {
+        "build:scss": "sass src/scss/main.scss dist/main.css --style compressed --source-map",
+        "watch:scss": "sass src/scss/main.scss dist/main.css --watch --style expanded --source-map",
+        "build": "npm run build:scss",
+        "dev": "npm run watch:scss",
+        "serve": "live-server src --port=3000 --open=/index.html",
+        "start": "concurrently \"npm run watch:scss\" \"npm run serve\""
+    },
+    "keywords": [
+        "portfolio",
+        "web-development",
+        "scss",
+        "responsive",
+        "accessibility",
+        "BEM"
+    ],
+    "author": "Somood Musleh",
+    "license": "MIT",
+    "devDependencies": {
+        "sass": "^1.69.5",
+        "live-server": "^1.2.2",
+        "concurrently": "^8.2.2"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not dead",
+        "not ie 11"
+    ]
+}

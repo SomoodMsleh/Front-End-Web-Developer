@@ -1,0 +1,262 @@
+// _footer.scss - Footer component
+
+@use '../utils/mixins' as *;
+@use '../utils/variables' as *;
+
+.footer {
+    background: var(--darker-bg);
+    border-top: 1px solid var(--border-color);
+    padding: var(--spacing-xl) 0;
+    position: relative;
+
+    // Background pattern
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image:
+            linear-gradient(135deg,
+                rgba(0, 255, 136, 0.02) 0%,
+                transparent 50%,
+                rgba(0, 255, 136, 0.01) 100%);
+        pointer-events: none;
+    }
+
+    &_container {
+        @include container;
+        @include flex-center;
+        position: relative;
+        z-index: 1;
+    }
+
+    &_content {
+        text-align: center;
+        width: 100%;
+    }
+
+    &_text {
+        color: var(--text-gray);
+        font-size: var(--font-size-base);
+        margin-bottom: var(--spacing-md);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        @include mobile {
+            font-size: var(--font-size-sm);
+        }
+    }
+
+    &_links {
+        display: flex;
+        justify-content: center;
+        gap: var(--spacing-xl);
+        margin-bottom: var(--spacing-lg);
+
+        @include mobile {
+            gap: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+
+        a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+
+            &:hover,
+            &:focus {
+                color: var(--primary-color);
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                width: 0;
+                height: 1px;
+                background: var(--primary-color);
+                transition: width 0.3s ease;
+            }
+
+            &:hover::after,
+            &:focus::after {
+                width: 100%;
+            }
+        }
+    }
+
+    &_social {
+        display: flex;
+        justify-content: center;
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-lg);
+
+        a {
+            @include flex-center;
+            width: 40px;
+            height: 40px;
+            background: var(--card-bg);
+            color: var(--text-gray);
+            border-radius: var(--border-radius-full);
+            font-size: var(--font-size-lg);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+
+            &:hover,
+            &:focus {
+                background: var(--primary-color);
+                color: var(--text-dark);
+                transform: translateY(-2px);
+                box-shadow: var(--shadow-md);
+                border-color: var(--primary-color);
+            }
+
+            &:active {
+                transform: translateY(0);
+            }
+        }
+    }
+
+    &_divider {
+        width: 100%;
+        height: 1px;
+        background: var(--border-color);
+        margin: var(--spacing-lg) 0;
+        opacity: 0.5;
+    }
+
+    &_bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: var(--spacing-md);
+
+        @include mobile {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+
+    &_copyright {
+        color: var(--text-gray);
+        font-size: var(--font-size-sm);
+        opacity: 0.8;
+
+        .highlight {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+    }
+
+    &_back-to-top {
+        @include flex-center;
+        width: 40px;
+        height: 40px;
+        background: var(--primary-color);
+        color: var(--text-dark);
+        border-radius: var(--border-radius-full);
+        text-decoration: none;
+        font-size: var(--font-size-lg);
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+
+        &:hover,
+        &:focus {
+            background: var(--hover-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        &:active {
+            transform: translateY(-1px);
+        }
+
+        @include mobile {
+            display: none;
+        }
+    }
+}
+
+// Simple footer variant (for minimal designs)
+.footer_simple {
+    padding: var(--spacing-lg) 0;
+
+    .footer_container {
+        text-align: center;
+    }
+
+    .footer_text {
+        margin: 0;
+        font-size: var(--font-size-sm);
+    }
+}
+
+// Footer animations
+@media (prefers-reduced-motion: no-preference) {
+    .footer {
+
+        &_social a,
+        &_back-to-top {
+            &:hover {
+                animation: pulse 0.6s ease-in-out;
+            }
+        }
+
+        &_links a {
+            &:hover {
+                animation: bounce-small 0.4s ease-in-out;
+            }
+        }
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 255, 136, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 255, 136, 0);
+    }
+}
+
+@keyframes bounce-small {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+// Sticky footer support
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    main {
+        flex: 1;
+    }
+
+    .footer {
+        margin-top: auto;
+    }
+}

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Somood Musleh's Web Development Portfolio - Showcasing modern web development skills and latest projects" />
+    <title>Somood Musleh's Portfolio</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../dist/main.css" />
+</head>
+
+<body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <nav class="nav" id="navbar">
+        <div class="nav_container">
+            <a class="nav_logo" aria-label="Somood Musleh Portfolio Home" href="#home">Portfolio.</a>
+            <ul class="nav_menu" id="nav-menu">
+                <li class="nav_item">
+                    <a class="nav_link nav_link_active" href="#home">Home</a>
+                </li>
+                <li class="nav_item">
+                    <a class="nav_link" href="#projects">Projects</a>
+                </li>
+                <li class="nav_item">
+                    <a class="nav_link" href="#resume">Resume</a>
+                </li>
+                <li class="nav_item">
+                    <a class="nav_link" href="#skills">Skills</a>
+                </li>
+                <li class="nav_item">
+                    <a class="nav_link" href="#contact">Contact</a>
+                </li>
+            </ul>
+            <button class="nav_toggle" id="nav-toggle" aria-label="Toggle navigation menu">
+                <i class="bx bx-menu"></i>
+            </button>
+        </div>
+        <div class="nav_overlay" id="nav-overlay"></div>
+    </nav>
+
+    <header class="intro-banner" id="home">
+        <div class="intro-banner_container">
+            <div class="intro-banner_content">
+                <div class="intro-banner_text">
+                    <h1 class="intro-banner_title">Somood Musleh</h1>
+                    <h2 class="intro-banner_subtitle">
+                        I'm a <span class="text-gradient">Frontend Developer</span>
+                    </h2>
+                    <p class="intro-banner_description">
+                        Passionate web developer specializing in creating modern,
+                        responsive, and user-friendly websites. I transform ideas into
+                        digital experiences using the latest technologies and best
+                        practices in web development. Let's build something amazing
+                        together!
+                    </p>
+
+                    <div class="intro-banner_social">
+                        <a class="button button-social" aria-label="Download CV" href="#" >
+                            <i class="bx bx-download"></i>
+                            <span>Download CV</span>
+                        </a>
+                        <a class="button button-icon" aria-label="Visit GitHub Profile"
+                            href="https://github.com/SomoodMsleh" target="_blank" rel="noopener">
+                            <i class="bx bxl-github"></i>
+                        </a>
+                        <a class="button button-icon" aria-label="Visit LinkedIn Profile"
+                            href="https://www.linkedin.com/in/somoodmusleh/" target="_blank" rel="noopener">
+                            <i class="bx bxl-linkedin-square"></i>
+                        </a>
+                        <a class="button button-icon" aria-label="Visit Discord Profile" href="#" target="_blank"
+                            rel="noopener">
+                            <i class="bx bxl-discord-alt"></i>
+                        </a>
+                        <a class="button button-icon" aria-label="Visit YouTube Channel" href="#" target="_blank"
+                            rel="noopener">
+                            <i class="bx bxl-youtube"></i>
+                        </a>
+                    </div>
+
+                    <div class="intro-banner_actions">
+                        <a class="button button_primary" href="#projects">View My Work</a>
+                        <a class="button button_secondary" href="#contact">Get In Touch</a>
+                    </div>
+                </div>
+
+                <div class="intro-banner_image">
+                    <img src="img/ss.jpg" alt="Somood Musleh - Frontend Developer and Web Development Specialist" />
+                </div>
+            </div>
+
+            <div class="intro-banner_scroll" aria-hidden="true">Scroll Down</div>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="projects" id="projects">
+            <h2 class="projects__title">
+                Latest <span class="text-gradient">Projects</span>
+            </h2>
+            <div class="projects__grid">
+                <div class="projects__item">
+                    <article class="project-card">
+                        <span class="project-card__number">01</span>
+                        <h3 class="project-card__title">E-commerce API</h3>
+                        <img class="project-card__image" src="img/project1.jpg"
+                            alt="E-commerce API project showing modern web interface with shopping cart and product listings" />
+                        <p class="project-card__description">
+                            A comprehensive RESTful API for e-commerce applications
+                            featuring user authentication, product management, cart
+                            functionality, and secure payment integration with modern
+                            security practices.
+                        </p>
+                        <div class="project-card__tech">
+                            <p class="project-card__tech-text">
+                                JavaScript • Node.js • Express.js • MongoDB • REST API
+                            </p>
+                        </div>
+                        <div class="project-card__links">
+                            <a class="button button_small button_primary"
+                                href="https://github.com/SomoodMsleh/ecommerce" target="_blank" rel="noopener">
+                                <i class="bx bx-link-external"></i><span>Live Project</span>
+                            </a>
+                            <a class="button button_small button_secondary"
+                                href="https://github.com/SomoodMsleh/ecommerce" target="_blank" rel="noopener">
+                                <i class="bx bxl-github"></i><span>GitHub Repo</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="projects__item">
+                    <article class="project-card">
+                        <span class="project-card__number">02</span>
+                        <h3 class="project-card__title">Medical Imaging Platform</h3>
+                        <img class="project-card__image" src="img/project2.png"
+                            alt="Medical Imaging Management Platform interface showing dashboard and medical image viewer" />
+                        <p class="project-card__description">
+                            Advanced healthcare management system for medical imaging with
+                            secure patient data handling, DICOM image viewing, appointment
+                            scheduling, and comprehensive reporting features.
+                        </p>
+                        <div class="project-card__tech">
+                            <p class="project-card__tech-text">
+                                HTML • CSS • Bootstrap • JavaScript • jQuery • PHP • MySQL •
+                                Laravel
+                            </p>
+                        </div>
+                        <div class="project-card__links">
+                            <a class="button button_small button_primary"
+                                href="https://github.com/SomoodMsleh/Medical-Imaging-Management-Platform"
+                                target="_blank" rel="noopener">
+                                <i class="bx bx-link-external"></i><span>Live Project</span>
+                            </a>
+                            <a class="button button_small button_secondary"
+                                href="https://github.com/SomoodMsleh/Medical-Imaging-Management-Platform"
+                                target="_blank" rel="noopener">
+                                <i class="bx bxl-github"></i><span>GitHub Repo</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="projects__item">
+                    <article class="project-card">
+                        <span class="project-card__number">03</span>
+                        <h3 class="project-card__title">Food Delivery API</h3>
+                        <img class="project-card__image" src="img/project3.jpg"
+                            alt="Food Delivery App API interface showing restaurant listings and order management" />
+                        <p class="project-card__description">
+                            Scalable food delivery platform API with real-time order
+                            tracking, restaurant management, user profiles, payment
+                            processing, and notification system for seamless food ordering
+                            experience.
+                        </p>
+                        <div class="project-card__tech">
+                            <p class="project-card__tech-text">
+                                JavaScript • Node.js • Express.js • MongoDB • REST API •
+                                Socket.io
+                            </p>
+                        </div>
+                        <div class="project-card__links">
+                            <a class="button button_small button_primary"
+                                href="https://github.com/SomoodMsleh/Food-Delivery-App-API" target="_blank"
+                                rel="noopener">
+                                <i class="bx bx-link-external"></i><span>Live Project</span>
+                            </a>
+                            <a class="button button_small button_secondary"
+                                href="https://github.com/SomoodMsleh/Food-Delivery-App-API" target="_blank"
+                                rel="noopener">
+                                <i class="bx bxl-github"></i><span>GitHub Repo</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="projects__item">
+                    <article class="project-card">
+                        <span class="project-card__number">04</span>
+                        <h3 class="project-card__title">Restaurant Booking System</h3>
+                        <img class="project-card__image" src="img/project4.png"
+                            alt="Restaurant Table Booking System showing reservation interface and table management" />
+                        <p class="project-card__description">
+                            Complete restaurant management solution with online table
+                            reservations, menu management, customer profiles, booking
+                            analytics, and admin dashboard for efficient restaurant
+                            operations.
+                        </p>
+                        <div class="project-card__tech">
+                            <p class="project-card__tech-text">
+                                HTML • CSS • JavaScript • jQuery • PHP • MySQL • Admin Panel
+                            </p>
+                        </div>
+                        <div class="project-card__links">
+                            <a class="button button_small button_primary"
+                                href="https://github.com/SomoodMsleh/Restaurant-Table-Booking-System-PHP"
+                                target="_blank" rel="noopener">
+                                <i class="bx bx-link-external"></i><span>Live Project</span>
+                            </a>
+                            <a class="button button_small button_secondary"
+                                href="https://github.com/SomoodMsleh/Restaurant-Table-Booking-System-PHP"
+                                target="_blank" rel="noopener">
+                                <i class="bx bxl-github"></i><span>GitHub Repo</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="contact__container">
+                <div class="contact__info">
+                    <h2 class="contact__title">Let's Work Together</h2>
+                    <p class="contact__description">
+                        Ready to bring your ideas to life? I'm here to help you create
+                        amazing digital experiences. Whether you need a new website, want
+                        to improve an existing one, or have a custom project in mind,
+                        let's discuss how we can work together to achieve your goals.
+                    </p>
+
+                    <div class="contact__details">
+                        <div class="contact__item">
+                            <div class="contact__icon">
+                                <i class="bx bxl-gmail"></i>
+                            </div>
+                            <div class="contact__content">
+                                <h4>Email</h4>
+                                <a href="mailto:somoododwan97@gmail.com">somoododwan97@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact__item">
+                            <div class="contact__icon">
+                                <i class="bx bxs-phone"></i>
+                            </div>
+                            <div class="contact__content">
+                                <h4>Phone</h4>
+                                <a href="tel:+970987365214">+970 98 736 5214</a>
+                            </div>
+                        </div>
+
+                        <div class="contact__item">
+                            <div class="contact__icon">
+                                <i class="bx bxs-location-plus"></i>
+                            </div>
+                            <div class="contact__content">
+                                <h4>Location</h4>
+                                <address>Palestine</address>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact__form">
+                    <div class="form-container">
+                        <h3 class="form-title">Contact Me!</h3>
+                        <form action="#" method="post" id="contact-form" novalidate>
+                            <div class="form-group">
+                                <label for="name">Name <span class="required">*</span></label>
+                                <input id="name" type="text" placeholder="e.g. John Smith" name="name" minlength="2"
+                                    maxlength="50" required autocomplete="name" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" placeholder="e.g. name@domain.com" required
+                                    autocomplete="email" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Subject <span class="required">*</span></label>
+                                <input type="text" id="subject" placeholder="e.g. Business Consultation" name="subject"
+                                    maxlength="100" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message <span class="required">*</span></label>
+                                <textarea name="message" id="message"
+                                    placeholder="Tell me about your project or ask any questions (20-500 characters)"
+                                    cols="35" rows="6" minlength="20" maxlength="500" required></textarea>
+                            </div>
+
+                            <div class="form-actions">
+                                <input type="submit" value="Send Message" name="submit" class="button button_primary" />
+                                <input type="reset" value="Reset Form" name="reset" class="button button_secondary" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer_container">
+            <div class="footer_content">
+                <div class="footer_social">
+                    <a href="https://github.com/SomoodMsleh" target="_blank" rel="noopener" aria-label="GitHub Profile">
+                        <i class="bx bxl-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/somoodmusleh/" target="_blank" rel="noopener"
+                        aria-label="LinkedIn Profile">
+                        <i class="bx bxl-linkedin-square"></i>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener" aria-label="Discord Profile">
+                        <i class="bx bxl-discord-alt"></i>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener" aria-label="YouTube Channel">
+                        <i class="bx bxl-youtube"></i>
+                    </a>
+                </div>
+
+                <div class="footer_divider"></div>
+
+                <div class="footer_bottom">
+                    <p class="footer_copyright">
+                        &copy; 2025 <span class="highlight">Somood Musleh</span>. All
+                        rights reserved.
+                    </p>
+                    <button class="footer_back-to-top" onclick="scrollToTop()" aria-label="Back to top">
+                        <i class="bx bx-up-arrow-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

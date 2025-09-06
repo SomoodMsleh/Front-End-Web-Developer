@@ -1,0 +1,158 @@
+// _nav.scss - Navigation component
+
+@use '../utils/mixins' as *;
+@use '../utils/variables' as *;
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-navbar);
+    background: rgba(26, 32, 44, 0.95);
+    @include backdrop-blur;
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    padding: var(--spacing-lg) 0;
+
+    &.nav_scrolled {
+        padding: var(--spacing-md) 0;
+        background: rgba(26, 32, 44, 0.98);
+        box-shadow: var(--shadow-lg);
+    }
+
+    &_container {
+        @include container;
+        @include flex-between;
+    }
+
+    &_logo {
+        font-size: var(--font-size-xl);
+        font-weight: 700;
+        color: var(--text-light);
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover,
+        &:focus {
+            color: var(--primary-color);
+        }
+
+        @include mobile {
+            font-size: var(--font-size-lg);
+        }
+    }
+
+    &_menu {
+        display: flex;
+        gap: var(--spacing-2xl);
+        align-items: center;
+
+        @include mobile {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 80%;
+            height: 100vh;
+            background: var(--darker-bg);
+            flex-direction: column;
+            justify-content: center;
+            gap: var(--spacing-xl);
+            transition: left 0.3s ease;
+            z-index: 1001;
+
+            &.nav_menu_active {
+                left: 0;
+            }
+        }
+    }
+
+    &_item {
+        list-style: none;
+    }
+
+    &_link {
+        color: var(--text-gray);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: var(--font-size-base);
+        position: relative;
+        transition: color 0.3s ease;
+        padding: var(--spacing-xs) 0;
+
+        &:hover,
+        &:focus {
+            color: var(--primary-color);
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        &:hover::after,
+        &:focus::after {
+            width: 100%;
+        }
+
+        &_active {
+            color: var(--primary-color);
+
+            &::after {
+                width: 100%;
+            }
+        }
+
+        @include mobile {
+            font-size: var(--font-size-lg);
+        }
+    }
+
+    &_toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--text-light);
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: color 0.3s ease;
+
+        &:hover,
+        &:focus {
+            color: var(--primary-color);
+        }
+
+        @include mobile {
+            display: block;
+            z-index: 1002;
+        }
+    }
+
+    &_overlay {
+        display: none;
+
+        @include mobile {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+
+            &.nav_overlay_active {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+}

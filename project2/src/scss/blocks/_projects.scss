@@ -1,0 +1,284 @@
+// _projects.scss - Projects section component
+@use '../utils/mixins' as *;
+@use '../utils/variables' as *;
+
+.projects {
+    padding: var(--spacing-3xl) 0;
+    background: var(--darker-bg);
+    position: relative;
+
+    // Background pattern
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image:
+            radial-gradient(circle at 80% 20%, rgba(0, 255, 136, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 20% 80%, rgba(0, 255, 136, 0.03) 0%, transparent 50%);
+        pointer-events: none;
+    }
+
+    &__title {
+        text-align: center;
+        margin-bottom: var(--spacing-3xl);
+        position: relative;
+        z-index: 1;
+
+        &::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: var(--spacing-lg) auto 0;
+            border-radius: 2px;
+        }
+
+        @include mobile {
+            margin-bottom: var(--spacing-2xl);
+        }
+    }
+
+    &__grid {
+        @include container;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--spacing-2xl);
+        position: relative;
+        z-index: 1;
+
+        @include mobile {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-xl);
+        }
+    }
+
+    &__item {
+        @include fade-in-up;
+
+        &:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        &:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        &:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        &:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+    }
+}
+
+.project-card {
+    @include card;
+    padding: var(--spacing-xl);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+
+    // Hover effect overlay
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg,
+                transparent,
+                rgba(0, 255, 136, 0.1),
+                transparent);
+        transition: left 0.6s ease;
+        pointer-events: none;
+    }
+
+    &:hover::before {
+        left: 100%;
+    }
+
+    &__number {
+        position: absolute;
+        top: var(--spacing-lg);
+        right: var(--spacing-lg);
+        width: 40px;
+        height: 40px;
+        @include flex-center;
+        background: var(--primary-color);
+        color: var(--text-dark);
+        border-radius: var(--border-radius-full);
+        font-weight: 700;
+        font-size: var(--font-size-lg);
+        z-index: 2;
+    }
+
+    &__title {
+        margin-bottom: var(--spacing-md);
+        color: var(--text-light);
+        font-size: var(--font-size-xl);
+        line-height: 1.3;
+
+        @include mobile {
+            font-size: var(--font-size-lg);
+        }
+    }
+
+    &__image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: var(--border-radius-md);
+        margin-bottom: var(--spacing-lg);
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+
+        @include mobile {
+            height: 180px;
+        }
+    }
+
+    &__description {
+        color: var(--text-gray);
+        line-height: 1.6;
+        margin-bottom: var(--spacing-lg);
+        flex-grow: 1;
+    }
+
+    &__tech {
+        margin-bottom: var(--spacing-lg);
+        padding: var(--spacing-md);
+        background: rgba(0, 255, 136, 0.1);
+        border-radius: var(--border-radius-md);
+        border-left: 4px solid var(--primary-color);
+
+        &-text {
+            color: var(--text-light);
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            margin: 0;
+        }
+    }
+
+    &__links {
+        display: flex;
+        gap: var(--spacing-md);
+        margin-top: auto;
+
+        @include mobile {
+            gap: var(--spacing-sm);
+            flex-direction: column;
+        }
+
+        .button {
+            flex: 1;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+
+            @include mobile {
+                width: 100%;
+            }
+
+            // Hide text by default, show icon only
+            span {
+                opacity: 0;
+                transform: translateX(20px);
+                transition: all 0.3s ease;
+                white-space: nowrap;
+                width: 0;
+                overflow: hidden;
+            }
+
+            // Show text on hover
+            &:hover,
+            &:focus {
+                span {
+                    opacity: 1;
+                    transform: translateX(0);
+                    width: auto;
+                    margin-left: var(--spacing-sm);
+                }
+            }
+
+            // Icon styling
+            i {
+                transition: transform 0.3s ease;
+                flex-shrink: 0;
+            }
+
+            &:hover i,
+            &:focus i {
+                transform: scale(1.1);
+            }
+
+            // Mobile: always show text
+            @include mobile {
+                span {
+                    opacity: 1;
+                    transform: translateX(0);
+                    width: auto;
+                    margin-left: var(--spacing-sm);
+                }
+            }
+        }
+    }
+
+    // Responsive adjustments
+    @include mobile {
+        padding: var(--spacing-lg);
+    }
+}
+
+// Project card animations
+@media (prefers-reduced-motion: no-preference) {
+    .project-card {
+        &:hover {
+            transform: translateY(-8px);
+            box-shadow:
+                0 25px 50px -12px rgba(0, 0, 0, 0.25),
+                0 0 30px rgba(0, 255, 136, 0.1);
+        }
+
+        &__image {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        &__title {
+            transition: color 0.3s ease;
+        }
+
+        &:hover &__title {
+            color: var(--primary-color);
+        }
+    }
+}
+
+// Large screens optimization
+@include large-desktop {
+    .projects {
+        &__grid {
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 1000px;
+        }
+    }
+
+    .project-card {
+        padding: var(--spacing-2xl);
+
+        &__image {
+            height: 220px;
+        }
+    }
+}

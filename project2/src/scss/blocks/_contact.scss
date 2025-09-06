@@ -1,0 +1,186 @@
+// _contact.scss - Contact section component
+
+@use '../utils/mixins' as *;
+@use '../utils/variables' as *;
+
+.contact {
+    padding: var(--spacing-3xl) 0;
+    background: var(--dark-bg);
+    position: relative;
+
+    // Background pattern
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image:
+            radial-gradient(circle at 30% 30%, rgba(0, 255, 136, 0.08) 0%, transparent 50%),
+            radial-gradient(circle at 70% 70%, rgba(0, 255, 136, 0.04) 0%, transparent 50%);
+        pointer-events: none;
+    }
+
+    &__container {
+        @include container;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--spacing-3xl);
+        align-items: start;
+        position: relative;
+        z-index: 1;
+
+        @include tablet {
+            grid-template-columns: 1fr;
+            gap: var(--spacing-2xl);
+        }
+    }
+
+    &__info {
+        @include slide-in-left;
+        animation-delay: 0.2s;
+    }
+
+    &__form {
+        @include slide-in-right;
+        animation-delay: 0.3s;
+    }
+
+    &__title {
+        font-size: var(--font-size-4xl);
+        margin-bottom: var(--spacing-lg);
+        @include text-gradient;
+
+        @include mobile {
+            font-size: var(--font-size-3xl);
+        }
+    }
+
+    &__subtitle {
+        font-size: var(--font-size-2xl);
+        color: var(--text-light);
+        margin-bottom: var(--spacing-lg);
+        font-weight: 600;
+
+        @include mobile {
+            font-size: var(--font-size-xl);
+        }
+    }
+
+    &__description {
+        color: var(--text-gray);
+        line-height: 1.7;
+        margin-bottom: var(--spacing-2xl);
+        font-size: var(--font-size-lg);
+
+        @include mobile {
+            font-size: var(--font-size-base);
+        }
+    }
+
+    &__details {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xl);
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-lg);
+        padding: var(--spacing-lg);
+        background: var(--card-bg);
+        border-radius: var(--border-radius-lg);
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: translateX(5px);
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-md);
+        }
+    }
+
+    &__icon {
+        @include flex-center;
+        width: 50px;
+        height: 50px;
+        background: var(--primary-color);
+        color: var(--text-dark);
+        border-radius: var(--border-radius-full);
+        font-size: var(--font-size-xl);
+        flex-shrink: 0;
+    }
+
+    &__content {
+        flex: 1;
+
+        h4 {
+            color: var(--text-light);
+            margin-bottom: var(--spacing-xs);
+            font-weight: 600;
+        }
+
+        a,
+        address {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-style: normal;
+
+            &:hover,
+            &:focus {
+                color: var(--primary-color);
+            }
+        }
+    }
+}
+
+// Contact form specific styles will be handled in _form.scss
+
+// Responsive adjustments
+@include mobile {
+    .contact {
+        padding: var(--spacing-2xl) 0;
+
+        &__item {
+            padding: var(--spacing-md);
+            gap: var(--spacing-md);
+        }
+
+        &__icon {
+            width: 45px;
+            height: 45px;
+            font-size: var(--font-size-lg);
+        }
+    }
+}
+
+// Animation for contact items
+@media (prefers-reduced-motion: no-preference) {
+    .contact__item {
+        opacity: 0;
+        transform: translateX(-20px);
+        animation: slideInLeft 0.6s ease forwards;
+
+        &:nth-child(1) {
+            animation-delay: 0.4s;
+        }
+
+        &:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        &:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+    }
+}
+
+@keyframes slideInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

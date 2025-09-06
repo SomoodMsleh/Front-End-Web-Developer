@@ -1,0 +1,341 @@
+// _form.scss - Form component
+
+@use '../utils/mixins' as *;
+@use '../utils/variables' as *;
+
+.form {
+    &-container {
+        background: var(--card-bg);
+        padding: var(--spacing-2xl);
+        border-radius: var(--border-radius-xl);
+        border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-xl);
+
+        @include mobile {
+            padding: var(--spacing-xl);
+        }
+    }
+
+    &-title {
+        font-size: var(--font-size-2xl);
+        color: var(--primary-color);
+        margin-bottom: var(--spacing-xl);
+        text-align: center;
+        font-weight: 600;
+
+        @include mobile {
+            font-size: var(--font-size-xl);
+        }
+    }
+
+    &-group {
+        margin-bottom: var(--spacing-xl);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    label {
+        display: block;
+        font-weight: 600;
+        color: var(--text-light);
+        margin-bottom: var(--spacing-sm);
+        font-size: var(--font-size-base);
+
+        .required {
+            color: var(--primary-color);
+            margin-left: var(--spacing-xs);
+        }
+    }
+
+    input,
+    textarea,
+    select {
+        width: 100%;
+        padding: var(--spacing-md) var(--spacing-lg);
+        background: var(--darker-bg);
+        border: 2px solid var(--border-color);
+        border-radius: var(--border-radius-md);
+        color: var(--text-light);
+        font-size: var(--font-size-base);
+        transition: all 0.3s ease;
+        font-family: var(--font-family-primary);
+
+        &::placeholder {
+            color: var(--text-gray);
+            opacity: 0.7;
+        }
+
+        &:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+            background: var(--dark-bg);
+        }
+
+        &:invalid:not(:placeholder-shown) {
+            border-color: #ff5757;
+            box-shadow: 0 0 0 3px rgba(255, 87, 87, 0.1);
+        }
+
+        &:valid:not(:placeholder-shown) {
+            border-color: var(--primary-color);
+        }
+
+        &:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            background: var(--card-bg);
+        }
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 120px;
+        line-height: 1.5;
+    }
+
+    select {
+        cursor: pointer;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right var(--spacing-md) center;
+        background-repeat: no-repeat;
+        background-size: 16px 16px;
+        padding-right: calc(var(--spacing-lg) + 24px);
+        appearance: none;
+    }
+
+    &-actions {
+        display: flex;
+        gap: var(--spacing-lg);
+        justify-content: center;
+        margin-top: var(--spacing-xl);
+
+        @include mobile {
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+    }
+
+    // Custom checkbox and radio styles
+    .checkbox,
+    .radio {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        margin-bottom: var(--spacing-md);
+        cursor: pointer;
+        user-select: none;
+
+        input {
+            width: auto;
+            margin: 0;
+            opacity: 0;
+            position: absolute;
+        }
+
+        &-custom {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--border-color);
+            background: var(--darker-bg);
+            border-radius: var(--border-radius-sm);
+            position: relative;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(0);
+                width: 8px;
+                height: 8px;
+                background: var(--primary-color);
+                border-radius: 1px;
+                transition: transform 0.2s ease;
+            }
+        }
+
+        input:checked+&-custom {
+            border-color: var(--primary-color);
+            background: var(--darker-bg);
+
+            &::after {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        input:focus+&-custom {
+            box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+        }
+
+        &-label {
+            color: var(--text-light);
+            font-size: var(--font-size-sm);
+            line-height: 1.5;
+        }
+    }
+
+    .radio .checkbox-custom {
+        border-radius: var(--border-radius-full);
+
+        &::after {
+            border-radius: var(--border-radius-full);
+        }
+    }
+
+    // Form validation styles
+    &-error {
+        color: #ff5757;
+        font-size: var(--font-size-sm);
+        margin-top: var(--spacing-xs);
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+
+        &::before {
+            content: '⚠';
+            font-size: var(--font-size-sm);
+        }
+    }
+
+    &-success {
+        color: var(--primary-color);
+        font-size: var(--font-size-sm);
+        margin-top: var(--spacing-xs);
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+
+        &::before {
+            content: '✓';
+            font-size: var(--font-size-sm);
+        }
+    }
+
+    // Loading state
+    &_loading {
+        opacity: 0.7;
+        pointer-events: none;
+
+        input,
+        textarea,
+        button {
+            cursor: wait;
+        }
+    }
+
+    // Form submission states
+    &-message {
+        padding: var(--spacing-md);
+        border-radius: var(--border-radius-md);
+        margin-bottom: var(--spacing-lg);
+        text-align: center;
+        font-weight: 500;
+
+        &_success {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        &_error {
+            background: rgba(255, 87, 87, 0.1);
+            border: 1px solid #ff5757;
+            color: #ff5757;
+        }
+    }
+}
+
+// Submit and reset button styles
+input[type="submit"],
+input[type="reset"],
+button[type="submit"],
+button[type="reset"] {
+    @include button-base;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+input[type="submit"],
+button[type="submit"] {
+    background: var(--primary-color);
+    color: var(--text-dark);
+
+    &:hover,
+    &:focus {
+        background: var(--hover-color);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+input[type="reset"],
+button[type="reset"] {
+    background: transparent;
+    color: var(--text-gray);
+    border: 2px solid var(--border-color);
+
+    &:hover,
+    &:focus {
+        color: var(--text-light);
+        border-color: var(--text-gray);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
+
+// Responsive form adjustments
+@include mobile {
+    .form {
+
+        input,
+        textarea {
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-size: var(--font-size-base);
+        }
+
+        &-actions {
+
+            input,
+            button {
+                padding: var(--spacing-md) var(--spacing-lg);
+                width: 100%;
+            }
+        }
+    }
+}
+
+// Focus trap for accessibility
+.form:focus-within {
+    .form-group {
+        &:focus-within {
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                border: 2px solid var(--primary-color);
+                border-radius: var(--border-radius-md);
+                pointer-events: none;
+                opacity: 0.3;
+            }
+        }
+    }
+}
