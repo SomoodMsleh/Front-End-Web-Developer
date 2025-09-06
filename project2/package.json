@@ -2,7 +2,7 @@
     "name": "somood-musleh-portfolio",
     "version": "1.0.0",
     "description": "Modern responsive portfolio website for Somood Musleh",
-    "main": "project2/src/index.html",
+    "main": "project2/src/portfolio.html",
     "scripts": {
         "build:scss": "sass src/scss/main.scss dist/main.css --style compressed --source-map",
         "watch:scss": "sass src/scss/main.scss dist/main.css --watch --style expanded --source-map",
